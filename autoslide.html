@@ -1,0 +1,32 @@
+<div class="slider" id="main-slider"><!-- outermost container element AUTOMATIC -->
+	<div class="slider-wrapper"><!-- innermost wrapper element -->
+		<img src="img/ko.jpg" alt="First" class="slide" /><!-- slides -->
+		<img src="img/o.jpg" alt="Second" class="slide" />
+		<img src="img/l.jpg" alt="Third" class="slide" />
+	</div>
+</div>
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
